@@ -9,4 +9,9 @@ jobs:
           CODE=`curl "https://api.juejin.cn/growth_api/v1/get_cur_point?aid=${{ secrets.AID }}&uuid=${{ secrets.UUID }}" -H 'cookie:${{ secrets.COOKIE }}'`
           err_no=`echo $CODE | sed 's/,/\n/g' | grep "err_no" | sed 's/:/\n/g' | sed '1d' | sed 's/}//g'`
           echo $err_no
-      # - name: show response
+          if [ $err_no!="0" ]
+          then
+            echo "failure"
+          else
+            echo "success"
+          fi
