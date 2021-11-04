@@ -5,10 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get Points
-        id: getPoints
-        uses: fjogeleit/http-request-action@master
-        with:
-          url: "https://api.juejin.cn/growth_api/v1/get_cur_point?aid=${{ secrets.AID }}&uuid=${{ secrets.UUID }}"
-          method: 'GET'
-      - name: show response
-        run: echo ${{ steps.getPoints.response }}
+        run: |
+          curl -w '%{response_code}' "https://api.juejin.cn/growth_api/v1/get_cur_point?aid=${{ secrets.AID }}&uuid=${{ secrets.UUID }}"
