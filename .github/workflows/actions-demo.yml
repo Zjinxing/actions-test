@@ -14,3 +14,4 @@ jobs:
         if: ${{ steps.first_step.outputs.err_no }} != "0"
         run: |
           echo "FAILURE send email"
+          echo ${{ steps.first_step.outputs.err_no }}
