@@ -12,6 +12,7 @@ jobs:
           if [ $err_no!=0 ]
           then
             echo "failure"
+            echo $err_no
           else
             echo "success"
           fi
