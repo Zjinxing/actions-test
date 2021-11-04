@@ -7,5 +7,5 @@ jobs:
       - name: Get Points
         run: |
           CODE=`curl "https://api.juejin.cn/growth_api/v1/get_cur_point?aid=${{ secrets.AID }}&uuid=${{ secrets.UUID }}" -H 'cookie:${{ secrets.COOKIE }}'`
+          echo $CODE
       # - name: show response
-      #   run: echo $CODE
