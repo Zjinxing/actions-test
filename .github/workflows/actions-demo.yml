@@ -8,7 +8,7 @@ jobs:
         id: getPoints
         uses: fjogeleit/http-request-action@master
         with:
-          url: "https://api.juejin.cn/growth_api/v1/get_cur_point?aid=2608&uuid=7008459435320804897"
+          url: "https://api.juejin.cn/growth_api/v1/get_cur_point?aid=${{ secrets.AID }}&uuid=${{ secrets.UUID }}"
           method: 'GET'
           customHeaders: '{ "cookie": "${{ secrets.COOKIE }}" }'
       - name: show response
