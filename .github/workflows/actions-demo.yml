@@ -16,5 +16,5 @@ jobs:
           echo "FAILURE send email"
           echo ${{ steps.first_step.outputs.err_no }}
       - name: step3
-        if: ${{ steps.first_step.outputs.err_no }} == "0"
+        if: ${{ steps.first_step.outputs.err_no == 0 }}
         run: echo "SUCCESS"
