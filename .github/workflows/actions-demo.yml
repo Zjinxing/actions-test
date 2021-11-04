@@ -11,5 +11,4 @@ jobs:
           echo $err_no
         if: $err_no == 0
           echo "success"
-        if: $err_no != 0
-          echo "FAILURE"
+          
