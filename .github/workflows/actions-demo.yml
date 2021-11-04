@@ -4,12 +4,12 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: get points
-      id: getPoints
-      uses: fjogeleit/http-request-action@master
-      with:
-        url: "https://api.juejin.cn/growth_api/v1/get_cur_point?aid=2608&uuid=7008459435320804897"
-        method: 'GET'
-        customHeaders: '{ "cookie": ${{ secrets.COOKIE }} }'
+      - name: Get Points
+        id: getPoints
+        uses: fjogeleit/http-request-action@master
+        with:
+          url: "https://api.juejin.cn/growth_api/v1/get_cur_point?aid=2608&uuid=7008459435320804897"
+          method: 'GET'
+          customHeaders: '{ "cookie": ${{ secrets.COOKIE }} }'
       - name: show response
         run: echo ${{ steps.getPoints.response }}
