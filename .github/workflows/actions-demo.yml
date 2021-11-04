@@ -10,6 +10,6 @@ jobs:
         with:
           url: "https://api.juejin.cn/growth_api/v1/get_cur_point?aid=2608&uuid=7008459435320804897"
           method: 'GET'
-          customHeaders: '{ "cookie": ${{ secrets.COOKIE }} }'
+          customHeaders: '{ "cookie": "${{ secrets.COOKIE }}" }'
       - name: show response
         run: echo ${{ steps.getPoints.response }}
