@@ -17,4 +17,4 @@ jobs:
           echo ${{ steps.first_step.outputs.err_no }}
       - name: step3
         if: ${{ steps.first_step.outputs.err_no }} == "0"
-          echo "SUCCESS"
+        run: echo "SUCCESS"
