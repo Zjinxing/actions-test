@@ -17,4 +17,13 @@ jobs:
           echo ${{ steps.first_step.outputs.err_no }}
       - name: step3
         if: ${{ steps.first_step.outputs.err_no == 0 }}
-        run: echo "SUCCESS"
+        uses: dawidd6/action-send-mail@master
+        with:
+          serveraddress: smtp.qq.com
+          serverport: 465
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          subject: sign failed
+          body: sign failed, please update the cookies
+          to: ${{ secrets.USERNAME }}
+          from: Github Actions
