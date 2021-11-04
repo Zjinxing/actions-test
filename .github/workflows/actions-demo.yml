@@ -19,8 +19,8 @@ jobs:
         if: ${{ steps.first_step.outputs.err_no == 0 }}
         uses: dawidd6/action-send-mail@master
         with:
-          serveraddress: smtp.qq.com
-          serverport: 465
+          server_address: smtp.qq.com
+          server_port: 465
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           subject: sign failed
