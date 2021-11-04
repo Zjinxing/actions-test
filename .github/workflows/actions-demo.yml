@@ -11,6 +11,6 @@ jobs:
           err_no=`echo $CODE | sed 's/,/\n/g' | grep "err_no" | sed 's/:/\n/g' | sed '1d' | sed 's/}//g'`
           echo "::set-output name=err_no::$err_no"
       - name: step2
-        if: ${{ steps.first_step.outputs.err_no }} == "0"
+        if: ${{ steps.first_step.outputs.err_no }} != "0"
         run: |
-          echo "success"
+          echo "FAILURE send email"
