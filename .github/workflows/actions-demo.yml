@@ -12,7 +12,8 @@ jobs:
           RES=`curl "https://api.juejin.cn/growth_api/v1/check_in?aid=${{ secrets.AID }}&uuid=${{ secrets.UUID }}&_signature=${{ secrets.SIGNATURE }}" -H 'cookie:${{ secrets.COOKIE }}' --data-raw '{}'`
           echo $RES
           err_no=`echo $RES | sed 's/,/\n/g' | grep "err_no" | sed 's/:/\n/g' | sed '1d' | sed 's/}//g'`
-          echo "::set-output name=err_no::$err_no,name=response::$RES"
+          echo "::set-output name=err_no::$err_no"
+          echo "::set-output name=response::$RES"
       - name: Send Email
         if: ${{ steps.first_step.outputs.err_no != 0 }}
         uses: dawidd6/action-send-mail@master
