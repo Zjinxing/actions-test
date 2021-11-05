@@ -8,6 +8,7 @@ jobs:
         id: first_step
         run: |
           CODE=`curl "https://api.juejin.cn/growth_api/v1/check_in?aid=${{ secrets.AID }}&uuid=${{ secrets.UUID }}&signature=${{ secrets.SIGNATURE }}" -H 'cookie:${{ secrets.COOKIE }}'`
+          echo $CODE
           err_no=`echo $CODE | sed 's/,/\n/g' | grep "err_no" | sed 's/:/\n/g' | sed '1d' | sed 's/}//g'`
           echo "::set-output name=err_no::$err_no"
       - name: step2
